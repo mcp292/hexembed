@@ -32,11 +32,10 @@
 #include <time.h>
 
 int main(int argc, char *argv[]) {
-    char *fn;
+    char *fn, c;
     FILE *fp;
     clock_t start, stop;
     int iter;
-    char c;
     
     start = clock();
     if (argc < 2) {printf("Usage:\n\thexembed <filename>\n"); return 1;}
@@ -76,7 +75,7 @@ int main(int argc, char *argv[]) {
     stop = clock();
 
     /* time in milliseconds */
-    printf("%lf\n", (1000.0 * (stop - start)) / CLOCKS_PER_SEC);
+    printf("%lf milliseconds\n", (1000.0 * (stop - start)) / CLOCKS_PER_SEC);
     
     return 0;
 }

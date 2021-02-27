@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     stop = clock();
 
     /* time in milliseconds */
-    printf("%lf\n", (1000.0 * (stop - start)) / CLOCKS_PER_SEC);
+    printf("%lf milliseconds\n", (1000.0 * (stop - start)) / CLOCKS_PER_SEC);
     
     return 0;
 }
