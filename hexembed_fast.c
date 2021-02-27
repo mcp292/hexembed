@@ -1,3 +1,6 @@
+/* AUTHOR: Michael Partridge */
+/* Altered version of hexembed: https://github.com/codeplea/hexembed */
+
 /*
  * hexembed - a simple utility to help embed files in C programs
  *
