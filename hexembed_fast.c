@@ -32,42 +32,47 @@
 #include <time.h>
 
 int main(int argc, char *argv[]) {
+    char *fn;
+    FILE *fp;
     clock_t start, stop;
-
+    int iter;
+    char c;
+    
     start = clock();
     if (argc < 2) {printf("Usage:\n\thexembed <filename>\n"); return 1;}
 
-    const char *fname = argv[1];
-    FILE *fp = fopen(fname, "rb");
+    fn = argv[1];
+    fp = fopen(fn, "rb");
     if (!fp) {
-        fprintf(stderr, "Error opening file: %s.\n", fname);
+        fprintf(stderr, "Error opening file: %s.\n", fn);
         return 1;
     }
 
-    fseek(fp, 0, SEEK_END);
-    const int fsize = ftell(fp);
+    /*fseek(fp, 0, SEEK_END); */
+    /*const int fsize = ftell(fp); */
 
-    fseek(fp, 0, SEEK_SET);
-    unsigned char *b = malloc(fsize);
+    /*fseek(fp, 0, SEEK_SET); */
+    /*unsigned char *b = malloc(fsize); */
 
-    fread(b, fsize, 1, fp);
-    fclose(fp);
+    /*fread(b, fsize, 1, fp); */
+    /*fclose(fp); */
 
 
-    printf("/* Embedded file: %s */\n", fname);
-    printf("const int fsize = %d;\n", fsize);
+    printf("/* Embedded file: %s */\n", fn);    
     printf("const unsigned char *file = {\n");
 
-    int i;
-    for (i = 0; i < fsize; ++i) {
-        printf("0x%02x%s",
-                b[i],
-                i == fsize-1 ? "" : ((i+1) % 16 == 0 ? ",\n" : ","));
+    for (iter = 0; (c = fgetc(fp)) != EOF; iter++)
+    {
+        printf("%s0x%02x",
+               (iter == 0) ? "" :
+               ((iter % 16) == 0) ? ",\n" : ",", /*TODO: verify that it's 16 items */
+               c);
     }
 
-    printf("\n};\n");
+    printf("\n};\n");    
+    printf("const int fsize = %d;\n", iter);
 
-    free(b);
+    fclose(fp);                 /*TODO: pull request to close fp */
     stop = clock();
 
     /* time in milliseconds */
