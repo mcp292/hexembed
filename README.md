@@ -1,7 +1,8 @@
-
 # hexembed
 
 hexembed is a very small utility to help embed files in C or C++ programs in an easy, cross-platform way.
+
+This fork implements `hexembed_fast.c` and records performance statistics ([Performance](# Performance)).
 
 ## Usage
 
@@ -25,3 +26,15 @@ Now you can simply `#include "some_file.c"` file in your program, and you have a
 
 
 You can find more info and alternative methods here: https://codeplea.com/embedding-files-in-c-programs
+
+## Performance
+
+TODO: insert CPU data
+
+```txt
+hexembed.c     :  
+hexembed_fast.c:
+
+hexembed.c      -   
+hexembed_fast.c -
+```
