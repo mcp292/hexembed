@@ -29,12 +29,28 @@ You can find more info and alternative methods here: https://codeplea.com/embedd
 
 ## Performance
 
-TODO: insert CPU data
+I set out to make a faster `hexembed`. Turns out what I did was slower. What I learned is it's 
+faster to read into memory than to make continous file calls. 
 
 ```txt
-hexembed.c     :  
-hexembed_fast.c:
+Time for one file (small):
+hexembed     : 5.347 milliseconds
+hexembed_fast: 5.270 milliseconds
 
-hexembed.c      -   
-hexembed_fast.c -
+Time for one file (large):
+hexembed     : 1079.141 milliseconds
+hexembed_fast: 1122.878 milliseconds
+
+Average time per file (small):
+hexembed     : 4.215 milliseconds
+hexembed_fast: 4.402 milliseconds
+
+Average time per file (large):
+hexembed     : 1078.356 milliseconds
+hexembed_fast: 1143.385 milliseconds
 ```
+
+The popular `xxd` program might make the same mistake I did. I'm basing this off the fact 
+that they print the size at the end. [TODO: confirm]
+
+Benchmark on your own system by running [`benchmark.py`](benchmark.py).
