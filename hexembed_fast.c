@@ -1,4 +1,4 @@
-/* AUTHOR: Michael Partridge */
+/* AUTHOR: Michael Partridge <mcp292@nau.edu> */
 /* Altered version of hexembed: https://github.com/codeplea/hexembed */
 
 /*
