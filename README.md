@@ -2,7 +2,7 @@
 
 hexembed is a very small utility to help embed files in C or C++ programs in an easy, cross-platform way.
 
-This fork implements `hexembed_fast.c` and records performance statistics ([Performance](# Performance)).
+This fork implements `hexembed_fast.c` and records performance statistics ([Performance](#performance)).
 
 ## Usage
 
@@ -53,4 +53,4 @@ hexembed_fast: 1143.385 milliseconds
 The popular `xxd` program might make the same mistake I did. I'm basing this off the fact 
 that they print the size at the end. [TODO: confirm]
 
-Benchmark on your own system by running [`benchmark.py`](benchmark.py).
+Benchmark on your own system by running [`benchmark.py`](test/benchmark.py).
