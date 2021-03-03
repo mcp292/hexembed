@@ -1,3 +1,5 @@
+# AUTHOR: Michael Partridge <mcp292@nau.edu>
+
 import subprocess
 
 
